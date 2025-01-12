@@ -1,0 +1,38 @@
+#pagecontainer{
+    width: 100px;
+    background: gray;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+#rcorners{
+    margin-top: 50%;
+
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 5px;
+    border-color: black;
+    background: #73AD21;
+    
+    width: 300px;
+    height: 400px; 
+}
+
+.center{
+    display: bloc;
+    right: 50%;
+    position: relative;
+    margin: auto;
+}
+
+.task{
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    width: 85%;
+    height: 50px;
+}
