@@ -10,9 +10,12 @@ console.log("working...")
 
 function connect_removal(item)
 {
-    console.log(add_button)
     item.onclick = (event) => {
         let id = item.getAttribute('task-id')
+        console.log(item)
+        console.log(item.parentNode)
+        console.log(item.parentNode.parentNode)
+        item.parentNode.remove()
         remove_task(id)
     }
 }

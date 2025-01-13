@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Task
+from django.shortcuts import redirect
+from django.http import HttpResponse
 
-from django.http import HttpResponseRedirect
+from .models import Task
 from .forms import TaskForm
 
 # Create your views here.
@@ -29,16 +30,16 @@ def home_view(request, id=None, is_form = ""):
             print(new_task.title)
             
             new_task.save()
-            
-        # redirect to a new URL:
-        return HttpResponseRedirect("")
+        return redirect("home")
     
     # DELETE request handling
     if request.method == "DELETE":
-        task_obj = Task.objects.get(pk=id)
-        if task_obj:
+        try:
+            task_obj = Task.objects.get(pk=id)
             task_obj.delete()
-        return HttpResponseRedirect("")
+        except Task.DoesNotExist:
+            task_obj = None
+        return HttpResponse()
     context = {
         "task_list": Task.objects.all(),
     }

@@ -13,12 +13,12 @@
             {%for task in task_list%}
                 <div class="task" style="background: {{task.color}}">
                     <p>{{ task.title }}</p>
-                    <button name="remove_task" task-id = {{task.id}}>x</button>
+                    <button name="remove_task" id="rmv" task-id = {{task.id}}>x</button>
                 </div>
             {%endfor%}
         </div>
         {% if is_form == False %}
-            <button id="add_task">Добавить</button>
+            <button name="add" id="add_task">Добавить</button>
         {% endif %}
         <script src="{% static 'index.js' %}"></script>
         {% if is_form == True %}
@@ -37,7 +37,8 @@
                     <input
                         id="color"
                         type="color"
-                        name="color_picker"/>
+                        name="color_picker"
+                        value="#00ff00"/>
                     <input id="OK" type="submit" value="OK"/>
             </form>
         {% endif %}
